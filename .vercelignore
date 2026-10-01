@@ -1,5 +1,6 @@
-api
-e2e
-docs
-playwright-report
-test-results
+# Leading slash = only the top-level folder (a bare "api" would also exclude src/api).
+/api
+/e2e
+/docs
+/playwright-report
+/test-results
