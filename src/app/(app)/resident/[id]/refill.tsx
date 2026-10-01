@@ -130,7 +130,7 @@ export default function RequestRefillScreen() {
               onPress={() => toggle(med.id)}
               disabled={Boolean(openOrder)}
               accessibilityRole="checkbox"
-              accessibilityState={{ checked: isSelected, disabled: Boolean(openOrder) }}
+              aria-checked={isSelected}
               accessibilityLabel={`${medLabel(med)}${openOrder ? ', already ordered' : ''}`}
               testID={`refill-med-${med.id}`}
               style={[styles.medRow, isSelected && styles.medRowSelected, openOrder && styles.medRowDisabled]}>

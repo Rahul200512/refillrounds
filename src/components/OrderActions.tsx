@@ -159,7 +159,7 @@ export function OrderActions({ order, medication, resident }: OrderActionsProps)
                 key={option}
                 onPress={() => setResolution(option)}
                 accessibilityRole="radio"
-                accessibilityState={{ checked: selected }}
+                aria-checked={selected}
                 accessibilityLabel={option}
                 testID={`resolution-option-${index}`}
                 style={[styles.choice, selected && styles.choiceSelected]}>

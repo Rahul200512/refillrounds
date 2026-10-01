@@ -23,6 +23,8 @@ jobs:
         run: npm test -- --ci
       - name: Web build
         run: npm run export:web
+      - name: Demo build must use the mock, not a local API
+        run: "! grep -l 'localhost:5005' dist/_expo/static/js/web/*.js"
 
   api:
     runs-on: ubuntu-latest

@@ -126,7 +126,7 @@ export default function DeliveryScreen() {
                     onPress={() => setStatus(item, choice.status)}
                     disabled={confirmed || savingItem === item.id}
                     accessibilityRole="radio"
-                    accessibilityState={{ checked: selected, disabled: confirmed }}
+                    aria-checked={selected}
                     accessibilityLabel={`${choice.label}: ${item.description}`}
                     testID={`delivery-${item.id}-${choice.status}`}
                     style={[

@@ -45,7 +45,7 @@ export function AppButton({
       disabled={inactive}
       accessibilityRole="button"
       accessibilityLabel={accessibilityLabel ?? label}
-      accessibilityState={{ disabled: inactive, busy: loading }}
+      aria-busy={loading}
       testID={testID}
       style={({ pressed }) => [
         styles.base,

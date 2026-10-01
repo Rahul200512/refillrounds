@@ -42,7 +42,7 @@
     "lint": "expo lint",
     "typecheck": "tsc --noEmit",
     "test": "jest",
-    "export:web": "expo export -p web",
+    "export:web": "expo export -p web --clear",
     "e2e": "playwright test",
     "check": "npm run typecheck && npm run lint && npm test"
   },

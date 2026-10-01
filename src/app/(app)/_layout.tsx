@@ -40,7 +40,8 @@ function DataGate() {
         headerBackButtonDisplayMode: 'minimal',
         contentStyle: { backgroundColor: colors.background },
       }}>
-      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      {/* The title is what the back button announces ("Home, back"), not the "(tabs)" group name. */}
+      <Stack.Screen name="(tabs)" options={{ headerShown: false, title: 'Home' }} />
       <Stack.Screen name="resident/[id]/index" options={{ title: 'Resident' }} />
       <Stack.Screen name="resident/[id]/refill" options={{ title: 'Request refill' }} />
       <Stack.Screen name="order/[id]" options={{ title: 'Order' }} />
