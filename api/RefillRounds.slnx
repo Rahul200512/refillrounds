@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="RefillRounds.Api.Tests/RefillRounds.Api.Tests.csproj" />
+  <Project Path="RefillRounds.Api/RefillRounds.Api.csproj" />
+</Solution>

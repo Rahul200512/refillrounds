@@ -10,7 +10,11 @@ export const test = base.extend<{ consoleProblems: string[] }>({
     async ({ page }, use) => {
       const problems: string[] = [];
       page.on('console', (msg) => {
-        if (msg.type() === 'error' || msg.type() === 'warning') problems.push(`${msg.type()}: ${msg.text()}`);
+        if (msg.type() !== 'error' && msg.type() !== 'warning') return;
+        // Against the real API, the wrong-password step gets a correct 401 and the browser
+        // logs every failed HTTP response. That's expected network behavior, not an app error.
+        if (msg.text().includes('status of 401 (Unauthorized)')) return;
+        problems.push(`${msg.type()}: ${msg.text()}`);
       });
       page.on('pageerror', (err) => problems.push(`pageerror: ${err.message}`));
       await use(problems);

@@ -1,0 +1,32 @@
+# Try the API from VS Code (REST Client) or Rider/Visual Studio.
+@host = http://localhost:5005
+
+# 1. Sign in and copy the "token" from the response into @token below.
+POST {{host}}/api/auth/sign-in
+Content-Type: application/json
+
+{ "username": "nurse.demo", "password": "Demo1234" }
+
+###
+@token = paste-token-here
+
+GET {{host}}/api/orders
+Authorization: Bearer {{token}}
+
+###
+POST {{host}}/api/orders/ord-1004/approve
+Authorization: Bearer {{token}}
+
+###
+POST {{host}}/api/orders/ord-1005/deny
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "reason": "Prescriber switching to a formulary alternative" }
+
+###
+POST {{host}}/api/orders/refills
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "residentId": "res-07", "medicationIds": ["med-07c"], "priority": "stat", "note": "Wheezing overnight" }
